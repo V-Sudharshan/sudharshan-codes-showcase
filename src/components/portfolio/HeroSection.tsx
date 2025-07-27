@@ -7,7 +7,8 @@ import {
   Phone, 
   MapPin, 
   ExternalLink,
-  Code
+  Code,
+  FileText
 } from "lucide-react";
 
 const HeroSection = () => {
@@ -66,6 +67,18 @@ const HeroSection = () => {
             <div className="w-2 h-2 bg-success rounded-full mr-2 animate-pulse" />
             Available for Opportunities
           </Badge>
+
+          {/* Profile Photo */}
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/ec2bbca4-7ca1-429c-bed9-f3bf38b670be.png"
+                alt="Vontigari Sudharshan"
+                className="w-48 h-48 rounded-full border-4 border-primary/20 shadow-elegant hover:shadow-glow transition-all duration-300"
+              />
+              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 hover:opacity-10 transition-opacity duration-300" />
+            </div>
+          </div>
 
           {/* Main Content */}
           <div className="space-y-6">
@@ -134,6 +147,21 @@ const HeroSection = () => {
               className="border-primary/20 hover:bg-primary/5"
             >
               View Projects
+            </Button>
+            <Button 
+              variant="secondary" 
+              size="lg"
+              asChild
+            >
+              <a 
+                href="https://drive.google.com/file/d/1IeHYItGCxT_1xK5gu9kBMcPdLoAm-dhM/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center"
+              >
+                View Resume
+                <FileText className="ml-2 h-4 w-4" />
+              </a>
             </Button>
           </div>
 
