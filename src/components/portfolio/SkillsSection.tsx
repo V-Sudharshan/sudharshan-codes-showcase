@@ -82,8 +82,7 @@ const SkillsSection = () => {
   ];
 
   const technologies = [
-    "MERN Stack", "Full-Stack Development", "RESTful APIs", "Responsive Design",
-    "Version Control", "Agile Methodology", "Problem Solving", "Team Collaboration"
+    "MERN Stack", "Full-Stack Development", "Problem Solving", "Team Collaboration"
   ];
 
   return (
@@ -126,9 +125,6 @@ const SkillsSection = () => {
                       <span className="text-sm font-medium text-foreground">
                         {skill.name}
                       </span>
-                      <span className="text-xs text-muted-foreground">
-                        {skill.level}%
-                      </span>
                     </div>
                     <Progress 
                       value={skill.level} 
@@ -144,7 +140,7 @@ const SkillsSection = () => {
         {/* Additional Technologies */}
         <div className="bg-card rounded-lg border border-border p-6 shadow-card">
           <h3 className="text-xl font-semibold text-foreground mb-4 text-center">
-            Technologies & Methodologies
+            Technologies
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {technologies.map((tech, index) => (
@@ -161,12 +157,11 @@ const SkillsSection = () => {
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
           {[
             { label: "Programming Languages", value: "4+" },
             { label: "Frameworks", value: "6+" },
-            { label: "Projects Completed", value: "10+" },
-            { label: "Technologies", value: "15+"  }
+            { label: "Projects Completed", value: "10+" }
           ].map((stat, index) => (
             <div 
               key={index}

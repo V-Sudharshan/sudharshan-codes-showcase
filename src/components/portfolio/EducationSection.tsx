@@ -44,7 +44,7 @@ const EducationSection = () => {
             Academic Journey
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A strong foundation in computer science with consistent academic excellence
+            A strong foundation built through dedicated academic pursuit and continuous learning
           </p>
         </div>
 
@@ -149,14 +149,6 @@ const EducationSection = () => {
                       Key Highlights
                     </h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-primary rounded-full" />
-                        <span>Consistent academic excellence</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-primary rounded-full" />
-                        <span>Computer Science Engineering focus</span>
-                      </li>
                       <li className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-primary rounded-full" />
                         <span>Final year student (2026)</span>

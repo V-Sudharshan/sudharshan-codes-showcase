@@ -74,7 +74,7 @@ const HeroSection = () => {
               <img 
                 src="/lovable-uploads/ec2bbca4-7ca1-429c-bed9-f3bf38b670be.png"
                 alt="Vontigari Sudharshan"
-                className="w-48 h-48 rounded-full border-4 border-primary/20 shadow-elegant hover:shadow-glow transition-all duration-300"
+                className="w-48 h-48 rounded-full border-4 border-primary/20 shadow-elegant hover:shadow-glow transition-all duration-300 object-cover object-center"
               />
               <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 hover:opacity-10 transition-opacity duration-300" />
             </div>
@@ -141,17 +141,16 @@ const HeroSection = () => {
               <ExternalLink className="ml-2 h-4 w-4" />
             </Button>
             <Button 
-              variant="outline" 
               size="lg"
               onClick={scrollToProjects}
-              className="border-primary/20 hover:bg-primary/5"
+              className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white border-0 hover:shadow-glow transition-all duration-300"
             >
               View Projects
             </Button>
             <Button 
-              variant="secondary" 
               size="lg"
               asChild
+              className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white border-0 hover:shadow-glow transition-all duration-300"
             >
               <a 
                 href="https://drive.google.com/file/d/1IeHYItGCxT_1xK5gu9kBMcPdLoAm-dhM/view?usp=sharing"

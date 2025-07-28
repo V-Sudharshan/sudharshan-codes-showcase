@@ -67,10 +67,9 @@ const CertificationsSection = () => {
   ];
 
   const stats = [
-    { label: "Professional Internships", value: "2" },
+    { label: "Professional Internships", value: "3" },
     { label: "Certifications", value: "4+" },
-    { label: "Hackathons", value: "1" },
-    { label: "Learning Hours", value: "500+" }
+    { label: "Hackathons", value: "1" }
   ];
 
   return (
