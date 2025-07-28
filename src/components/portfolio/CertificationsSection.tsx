@@ -67,9 +67,9 @@ const CertificationsSection = () => {
   ];
 
   const stats = [
-    { label: "Programming Languages", value: "5+" },
-    { label: "Frameworks", value: "8+" },
-    { label: "Projects Completed", value: "15+" }
+    { label: "Professional Internships", value: "3" },
+    { label: "Certifications", value: "4+" },
+    { label: "Hackathons", value: "1" }
   ];
 
   return (
@@ -88,7 +88,7 @@ const CertificationsSection = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {stats.map((stat, index) => (
             <div 
               key={index}

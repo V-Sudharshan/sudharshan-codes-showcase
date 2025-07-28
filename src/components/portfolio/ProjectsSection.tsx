@@ -46,7 +46,7 @@ const ProjectsSection = () => {
         "Voice-based Q&A system",
         "Multi-language support"
       ],
-      github: "https://github.com/V-Sudharshan/AgriBot-AI",
+      github: "https://github.com/V-Sudharshan/Agribot",
       icon: <Brain className="h-6 w-6" />,
       color: "bg-primary/10 text-primary"
     }
