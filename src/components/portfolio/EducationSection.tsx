@@ -8,7 +8,7 @@ const EducationSection = () => {
       degree: "B.Tech – Computer Science Engineering",
       institution: "Anurag University",
       duration: "2022 – 2026",
-      grade: "CGPA: 9.01",
+      grade: "CGPA: 9.02",
       type: "Undergraduate",
       status: "Current",
       icon: <GraduationCap className="h-6 w-6" />
@@ -128,7 +128,7 @@ const EducationSection = () => {
                     </h3>
                     <div className="space-y-4">
                       <div className="text-center p-4 bg-primary/5 rounded-lg">
-                        <div className="text-3xl font-bold text-primary">9.01</div>
+                        <div className="text-3xl font-bold text-primary">9.02</div>
                         <div className="text-sm text-muted-foreground">Current CGPA</div>
                       </div>
                       <div className="text-center p-4 bg-success/5 rounded-lg">

@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Github, Linkedin, Mail, Code, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, Code } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -59,7 +59,7 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm leading-relaxed">
               Full-Stack Developer & AI Enthusiast passionate about creating 
               innovative solutions with modern technologies. Currently pursuing 
-              B.Tech CSE with a CGPA of 9.01.
+              B.Tech CSE with a CGPA of 9.02.
             </p>
             <div className="flex items-center space-x-2">
               <Badge variant="secondary" className="text-xs">
@@ -116,9 +116,7 @@ const Footer = () => {
         <div className="border-t border-border mt-8 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-              <span>© {currentYear} Vontigari Sudharshan. Made with</span>
-              <Heart className="h-4 w-4 text-red-500 fill-current" />
-              <span>and React</span>
+              <span>© {currentYear} Vontigari Sudharshan.</span>
             </div>
             
             <div className="flex items-center space-x-4 text-xs text-muted-foreground">

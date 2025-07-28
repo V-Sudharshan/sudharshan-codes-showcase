@@ -72,7 +72,7 @@ const HeroSection = () => {
           <div className="flex justify-center mb-8">
             <div className="relative">
               <img 
-                src="/lovable-uploads/ec2bbca4-7ca1-429c-bed9-f3bf38b670be.png"
+                src="/lovable-uploads/37ecb197-17f4-49d1-900d-007085005997.png"
                 alt="Vontigari Sudharshan"
                 className="w-48 h-48 rounded-full border-4 border-primary/20 shadow-elegant hover:shadow-glow transition-all duration-300 object-cover object-center"
               />
@@ -101,7 +101,7 @@ const HeroSection = () => {
                 </div>
                 <div className="w-1 h-1 bg-muted-foreground rounded-full" />
                 <div className="flex items-center space-x-1">
-                  <span className="text-sm">B.Tech CSE • CGPA 9.01</span>
+                  <span className="text-sm">B.Tech CSE • CGPA 9.02</span>
                 </div>
               </div>
 

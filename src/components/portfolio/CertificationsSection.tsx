@@ -67,9 +67,9 @@ const CertificationsSection = () => {
   ];
 
   const stats = [
-    { label: "Professional Internships", value: "3" },
-    { label: "Certifications", value: "4+" },
-    { label: "Hackathons", value: "1" }
+    { label: "Programming Languages", value: "5+" },
+    { label: "Frameworks", value: "8+" },
+    { label: "Projects Completed", value: "15+" }
   ];
 
   return (
