@@ -77,19 +77,13 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-8 animate-fade-in">
-          {/* Status Badge */}
-          <Badge variant="secondary" className="px-4 py-2 text-sm font-medium">
-            <div className="w-2 h-2 bg-success rounded-full mr-2 animate-pulse" />
-            Available for Opportunities
-          </Badge>
-
           {/* Profile Photo */}
           <div className="flex justify-center mb-8 mt-16">
             <div className="relative">
               <img 
                 src="/lovable-uploads/fcc05502-5202-40b1-b408-8cb36f3e7343.png"
                 alt="Vontigari Sudharshan"
-                className="w-48 h-48 rounded-full border-4 border-primary/20 shadow-elegant hover:shadow-glow transition-all duration-300 object-cover object-top scale-125"
+                className="w-48 h-48 rounded-full border-4 border-primary/20 shadow-elegant hover:shadow-glow transition-all duration-300 object-cover object-top scale-150"
               />
               <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 hover:opacity-10 transition-opacity duration-300" />
             </div>
