@@ -69,7 +69,7 @@ const HeroSection = () => {
           </Badge>
 
           {/* Profile Photo */}
-          <div className="flex justify-center mb-8 mt-8">
+          <div className="flex justify-center mb-8 mt-16">
             <div className="relative">
               <img 
                 src="/lovable-uploads/fcc05502-5202-40b1-b408-8cb36f3e7343.png"
