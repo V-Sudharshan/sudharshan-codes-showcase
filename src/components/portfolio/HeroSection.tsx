@@ -54,7 +54,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden pt-20">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-background/90 to-background/70" />
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
