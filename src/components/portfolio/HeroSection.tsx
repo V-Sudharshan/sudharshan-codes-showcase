@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -12,6 +13,12 @@ import {
 } from "lucide-react";
 
 const HeroSection = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const socialLinks = [
     {
       icon: <Mail className="h-4 w-4" />,
@@ -52,6 +59,14 @@ const HeroSection = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  if (!mounted) {
+    return (
+      <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden pt-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-background/90 to-background/70" />
+      </section>
+    );
+  }
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden pt-20">
