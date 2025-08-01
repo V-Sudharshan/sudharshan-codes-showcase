@@ -78,7 +78,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-8 animate-fade-in">
           {/* Profile Photo */}
-          <div className="flex justify-center mb-12 mt-16">
+          <div className="flex justify-center mb-20 mt-16">
             <div className="relative">
               <img 
                 src="/lovable-uploads/fcc05502-5202-40b1-b408-8cb36f3e7343.png"
