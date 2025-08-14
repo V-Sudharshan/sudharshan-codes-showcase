@@ -83,7 +83,7 @@ const HeroSection = () => {
               <img 
                 src="/lovable-uploads/fcc05502-5202-40b1-b408-8cb36f3e7343.png"
                 alt="Vontigari Sudharshan"
-                className="w-48 h-48 rounded-full border-4 border-primary/20 shadow-elegant hover:shadow-glow transition-all duration-300 object-cover object-top scale-150"
+                className="w-48 h-48 rounded-full border-4 border-primary/20 shadow-elegant hover:shadow-glow transition-all duration-300 object-cover object-center scale-110"
               />
               <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 hover:opacity-10 transition-opacity duration-300" />
             </div>
