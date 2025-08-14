@@ -81,7 +81,7 @@ const HeroSection = () => {
           <div className="flex justify-center mb-20 mt-16">
             <div className="relative">
               <img 
-                src="/lovable-uploads/2f24db4f-a8f0-4a25-ae7d-d70f7561eb40.png"
+                src="/lovable-uploads/fcc05502-5202-40b1-b408-8cb36f3e7343.png"
                 alt="Vontigari Sudharshan"
                 className="w-48 h-48 rounded-full border-4 border-primary/20 shadow-elegant hover:shadow-glow transition-all duration-300 object-cover object-top scale-150"
               />
