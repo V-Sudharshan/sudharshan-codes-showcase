@@ -43,6 +43,12 @@ const HeroSection = () => {
       label: "LeetCode",
       href: "https://leetcode.com/u/vontigarisudharshan",
       color: "bg-orange-500 hover:bg-orange-600"
+    },
+    {
+      icon: <Code className="h-4 w-4" />,
+      label: "CodeChef",
+      href: "https://www.codechef.com/users/sudharshan2004",
+      color: "bg-amber-600 hover:bg-amber-700"
     }
   ];
 
