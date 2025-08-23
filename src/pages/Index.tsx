@@ -9,6 +9,7 @@ import InternshipsSection from "@/components/portfolio/InternshipsSection";
 import CertificationsSection from "@/components/portfolio/CertificationsSection";
 import ContactSection from "@/components/portfolio/ContactSection";
 import Footer from "@/components/portfolio/Footer";
+import ScrollToTop from "@/components/ui/scroll-to-top";
 
 const Index = () => {
   const { theme, setTheme } = useTheme();
@@ -40,6 +41,7 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

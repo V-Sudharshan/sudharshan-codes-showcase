@@ -188,8 +188,9 @@ const HeroSection = () => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-3 rounded-full text-white transition-all duration-300 hover:scale-110 hover:shadow-lg ${link.color}`}
+                className={`p-3 rounded-full text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:-translate-y-1 ${link.color}`}
                 title={link.label}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {link.icon}
               </a>
