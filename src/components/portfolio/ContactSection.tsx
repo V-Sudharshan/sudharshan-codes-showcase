@@ -13,7 +13,8 @@ import {
   Linkedin, 
   Code,
   Send,
-  ExternalLink
+  ExternalLink,
+  ChefHat
 } from "lucide-react";
 
 const ContactSection = () => {
@@ -68,6 +69,12 @@ const ContactSection = () => {
       label: "LeetCode",
       href: "https://leetcode.com/u/vontigarisudharshan",
       color: "bg-orange-500 hover:bg-orange-600"
+    },
+    {
+      icon: <ChefHat className="h-5 w-5" />,
+      label: "CodeChef",
+      href: "https://www.codechef.com/users/sudharshan2004",
+      color: "bg-amber-600 hover:bg-amber-700"
     }
   ];
 
