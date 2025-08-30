@@ -128,6 +128,9 @@ export default {
 				'slide-in-right': 'slide-in-right 0.6s ease-out',
 				'scale-in': 'scale-in 0.5s ease-out',
 				'float': 'float 3s ease-in-out infinite'
+			},
+			scale: {
+				'130': '1.3',
 			}
 		}
 	},
