@@ -8,6 +8,7 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 
 interface HeaderProps {
   isDark: boolean;
@@ -17,6 +18,7 @@ interface HeaderProps {
 const Header = ({ isDark, toggleTheme }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
 
   const navItems = [
@@ -31,6 +33,10 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Check if scrolled for compact header
+      setIsScrolled(window.scrollY > 50);
+      
+      // Check active section
       const sections = navItems.map(item => item.href.slice(1));
       const scrollPosition = window.scrollY + 100;
 
@@ -62,26 +68,40 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+      <header className={cn(
+        "fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border transition-all duration-300",
+        isScrolled ? "shadow-lg" : ""
+      )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 sm:h-16">
+          <div className={cn(
+            "flex items-center justify-between transition-all duration-300",
+            isScrolled ? "h-12 sm:h-14" : "h-14 sm:h-16"
+          )}>
             <div className="flex-shrink-0">
-              <span className="text-lg sm:text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <span className={cn(
+                "font-bold bg-gradient-primary bg-clip-text text-transparent transition-all duration-300",
+                isScrolled ? "text-base sm:text-lg" : "text-lg sm:text-xl"
+              )}>
                 VS
               </span>
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-6 lg:space-x-8">
+            <nav className={cn(
+              "hidden md:flex transition-all duration-300",
+              isScrolled ? "space-x-4 lg:space-x-6" : "space-x-6 lg:space-x-8"
+            )}>
               {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className={`text-sm font-medium transition-all duration-300 relative py-2 ${
+                  className={cn(
+                    "font-medium transition-all duration-300 relative py-2",
+                    isScrolled ? "text-xs" : "text-sm",
                     activeSection === item.href.slice(1)
                       ? "text-primary"
                       : "text-muted-foreground hover:text-foreground"
-                  }`}
+                  )}
                 >
                   {item.label}
                   {activeSection === item.href.slice(1) && (
@@ -96,12 +116,21 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="h-9 w-9 sm:h-10 sm:w-10"
+                className={cn(
+                  "transition-all duration-300",
+                  isScrolled ? "h-8 w-8 sm:h-9 sm:w-9" : "h-9 w-9 sm:h-10 sm:w-10"
+                )}
               >
                 {isDark ? (
-                  <Sun className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <Sun className={cn(
+                    "transition-all duration-300",
+                    isScrolled ? "h-3.5 w-3.5 sm:h-4 sm:w-4" : "h-4 w-4 sm:h-5 sm:w-5"
+                  )} />
                 ) : (
-                  <Moon className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <Moon className={cn(
+                    "transition-all duration-300",
+                    isScrolled ? "h-3.5 w-3.5 sm:h-4 sm:w-4" : "h-4 w-4 sm:h-5 sm:w-5"
+                  )} />
                 )}
               </Button>
 
@@ -109,10 +138,16 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden h-9 w-9 sm:h-10 sm:w-10"
+                className={cn(
+                  "md:hidden transition-all duration-300",
+                  isScrolled ? "h-8 w-8 sm:h-9 sm:w-9" : "h-9 w-9 sm:h-10 sm:w-10"
+                )}
                 onClick={() => setIsMenuOpen(true)}
               >
-                <Menu className="h-4 w-4 sm:h-5 sm:w-5" />
+                <Menu className={cn(
+                  "transition-all duration-300",
+                  isScrolled ? "h-3.5 w-3.5 sm:h-4 sm:w-4" : "h-4 w-4 sm:h-5 sm:w-5"
+                )} />
               </Button>
             </div>
           </div>

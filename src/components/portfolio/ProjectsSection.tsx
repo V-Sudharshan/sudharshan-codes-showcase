@@ -2,8 +2,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, Database, Brain, DollarSign } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const ProjectsSection = () => {
+  const isMobile = useIsMobile();
+  
   const projects = [
     {
       title: "Personal Finance Manager",
@@ -67,13 +77,21 @@ const ProjectsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {projects.map((project, index) => (
-            <Card 
-              key={index}
-              className="bg-gradient-card border-border shadow-card hover:shadow-elegant transition-all duration-300 hover:scale-[1.02] group animate-scale-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
+        {/* Mobile Carousel / Desktop Grid */}
+        {isMobile ? (
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {projects.map((project, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4">
+                  <Card 
+                    className="bg-gradient-card border-border shadow-card h-full"
+                  >
               <CardHeader className="space-y-4">
                 <div className="flex items-start justify-between">
                   <div className={`p-3 rounded-lg ${project.color}`}>
@@ -166,8 +184,117 @@ const ProjectsSection = () => {
                 </div>
               </CardContent>
             </Card>
-          ))}
-        </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center gap-4 mt-6">
+              <CarouselPrevious className="relative position-static" />
+              <CarouselNext className="relative position-static" />
+            </div>
+          </Carousel>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            {projects.map((project, index) => (
+              <Card 
+                key={index}
+                className="bg-gradient-card border-border shadow-card hover:shadow-elegant transition-all duration-300 hover:scale-[1.02] group animate-scale-in"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <CardHeader className="space-y-4">
+                  <div className="flex items-start justify-between">
+                    <div className={`p-3 rounded-lg ${project.color}`}>
+                      {project.icon}
+                    </div>
+                    <Button 
+                      variant="ghost" 
+                      size="sm"
+                      asChild
+                      className="opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="h-4 w-4" />
+                      </a>
+                    </Button>
+                  </div>
+                  
+                  <div>
+                    <CardTitle className="text-xl mb-2 text-foreground">
+                      {project.title}
+                    </CardTitle>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+                </CardHeader>
+
+                <CardContent className="space-y-6">
+                  {/* Tech Stack */}
+                  <div>
+                    <h4 className="text-sm font-medium text-foreground mb-3">
+                      Tech Stack
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack.map((tech, techIndex) => (
+                        <Badge 
+                          key={techIndex} 
+                          variant="secondary" 
+                          className="text-xs"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <div>
+                    <h4 className="text-sm font-medium text-foreground mb-3">
+                      Key Features
+                    </h4>
+                    <ul className="space-y-1">
+                      {project.features.slice(0, 3).map((feature, featureIndex) => (
+                        <li 
+                          key={featureIndex}
+                          className="text-xs text-muted-foreground flex items-start"
+                        >
+                          <span className="w-1 h-1 bg-primary rounded-full mt-2 mr-2 shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                      {project.features.length > 3 && (
+                        <li className="text-xs text-muted-foreground">
+                          +{project.features.length - 3} more features
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex gap-2 pt-2">
+                    <Button 
+                      size="sm" 
+                      asChild
+                      className="flex-1 bg-gradient-primary hover:shadow-glow transition-all duration-300"
+                    >
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="h-4 w-4 mr-2" />
+                        Code
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
 
         <div className="text-center mt-12">
           <Button 
