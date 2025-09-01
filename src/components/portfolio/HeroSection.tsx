@@ -87,12 +87,14 @@ const HeroSection = () => {
           {/* Profile Photo */}
           <div className="flex justify-center mb-12 sm:mb-20 mt-8 sm:mt-16">
             <div className="relative">
-              <img 
-                src="/lovable-uploads/fcc05502-5202-40b1-b408-8cb36f3e7343.png"
-                alt="Vontigari Sudharshan"
-                className="w-32 h-32 sm:w-48 sm:h-48 rounded-full border-4 border-primary/20 shadow-elegant hover:shadow-glow transition-all duration-300 object-cover object-top scale-125 sm:scale-150"
-              />
-              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 hover:opacity-10 transition-opacity duration-300" />
+              <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-full border-4 border-primary/20 shadow-elegant hover:shadow-glow transition-all duration-300 overflow-hidden">
+                <img 
+                  src="/lovable-uploads/fcc05502-5202-40b1-b408-8cb36f3e7343.png"
+                  alt="Vontigari Sudharshan"
+                  className="w-full h-full object-cover object-top scale-150 hover:scale-[1.6] transition-transform duration-300"
+                />
+              </div>
+              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 hover:opacity-10 transition-opacity duration-300 pointer-events-none" />
             </div>
           </div>
 
