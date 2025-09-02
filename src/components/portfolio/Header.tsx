@@ -8,6 +8,7 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 
 interface HeaderProps {
   isDark: boolean;
@@ -17,6 +18,7 @@ interface HeaderProps {
 const Header = ({ isDark, toggleTheme }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
 
   const navItems = [
@@ -33,6 +35,9 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
     const handleScroll = () => {
       const sections = navItems.map(item => item.href.slice(1));
       const scrollPosition = window.scrollY + 100;
+      
+      // Check if scrolled for compact header
+      setIsScrolled(window.scrollY > 20);
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -62,11 +67,20 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+      <header className={cn(
+        "fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border transition-all duration-300",
+        isScrolled && "shadow-lg"
+      )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 sm:h-16">
+          <div className={cn(
+            "flex items-center justify-between transition-all duration-300",
+            isScrolled ? "h-12 sm:h-14" : "h-14 sm:h-16"
+          )}>
             <div className="flex-shrink-0">
-              <span className="text-lg sm:text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <span className={cn(
+                "font-bold bg-gradient-primary bg-clip-text text-transparent transition-all duration-300",
+                isScrolled ? "text-base sm:text-lg" : "text-lg sm:text-xl"
+              )}>
                 VS
               </span>
             </div>
