@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, Database, Brain, DollarSign } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Reveal } from "@/hooks/use-reveal";
 import {
   Carousel,
   CarouselContent,

@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Building, Calendar, ExternalLink, Award, Shield } from "lucide-react";
+import { Reveal } from "@/hooks/use-reveal";
 
 const InternshipsSection = () => {
   const internships = [

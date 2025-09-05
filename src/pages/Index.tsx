@@ -10,6 +10,9 @@ import CertificationsSection from "@/components/portfolio/CertificationsSection"
 import ContactSection from "@/components/portfolio/ContactSection";
 import Footer from "@/components/portfolio/Footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
+import { CustomCursor } from "@/components/ui/custom-cursor";
+import { SectionIndicator } from "@/components/ui/section-indicator";
+import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
   const { theme, setTheme } = useTheme();
@@ -30,6 +33,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <CustomCursor />
+      <SectionIndicator />
       <Header isDark={theme === "dark"} toggleTheme={toggleTheme} />
       <main>
         <HeroSection />
@@ -42,6 +47,7 @@ const Index = () => {
       </main>
       <Footer />
       <ScrollToTop />
+      <Toaster />
     </div>
   );
 };

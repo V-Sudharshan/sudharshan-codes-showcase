@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, Calendar, Award } from "lucide-react";
+import { Reveal } from "@/hooks/use-reveal";
 
 const EducationSection = () => {
   const educationData = [
