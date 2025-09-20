@@ -7,6 +7,17 @@ import { Reveal } from "@/hooks/use-reveal";
 const InternshipsSection = () => {
   const internships = [
     {
+      title: "Python Developer Virtual Internship",
+      company: "Virtual Internship Program",
+      duration: "2024",
+      description: "Completed comprehensive Python development virtual internship focusing on programming fundamentals, data structures, algorithms, and practical application development",
+      type: "Python Development",
+      icon: <Building className="h-5 w-5" />,
+      color: "bg-green-500/10 text-green-600",
+      certificateUrl: "https://drive.google.com/file/d/1hoiIKGRUzM2oVOKRBZSVfr34Q9x0nGeA/view?usp=sharing",
+      skills: ["Python", "Data Structures", "Algorithms", "Problem Solving", "Software Development"]
+    },
+    {
       title: "EY GDS NextGen Internship",
       company: "Ernst & Young",
       duration: "2024",
