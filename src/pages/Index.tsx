@@ -7,6 +7,7 @@ import ProjectsSection from "@/components/portfolio/ProjectsSection";
 import SkillsSection from "@/components/portfolio/SkillsSection";
 import InternshipsSection from "@/components/portfolio/InternshipsSection";
 import CertificationsSection from "@/components/portfolio/CertificationsSection";
+import AchievementsSection from "@/components/portfolio/AchievementsSection";
 import ContactSection from "@/components/portfolio/ContactSection";
 import Footer from "@/components/portfolio/Footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
@@ -43,6 +44,7 @@ const Index = () => {
         <ProjectsSection />
         <SkillsSection />
         <CertificationsSection />
+        <AchievementsSection />
         <ContactSection />
       </main>
       <Footer />
