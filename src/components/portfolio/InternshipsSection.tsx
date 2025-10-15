@@ -7,6 +7,17 @@ import { Reveal } from "@/hooks/use-reveal";
 const InternshipsSection = () => {
   const internships = [
     {
+      title: "ServiceNow Virtual Internship Program",
+      company: "ServiceNow x SmartBridge x AICTE",
+      duration: "October 2025",
+      description: "Comprehensive ServiceNow platform training covering Agentic AI, Administration Fundamentals, Flows, Automated Testing, Reports, and CSA exam preparation",
+      type: "Platform Development",
+      icon: <Building className="h-5 w-5" />,
+      color: "bg-purple-500/10 text-purple-600",
+      certificateUrl: "https://drive.google.com/file/d/1Yzr-wWGAsliwaABuBoN5-_AygPGuqXgj/view?usp=sharing",
+      skills: ["ServiceNow", "Agentic AI", "Administration", "Flows", "ATF", "Reports"]
+    },
+    {
       title: "Python Developer Virtual Internship",
       company: "Virtual Internship Program",
       duration: "2024",
@@ -49,17 +60,6 @@ const InternshipsSection = () => {
       color: "bg-red-500/10 text-red-600",
       certificateUrl: "https://drive.google.com/file/d/1qaZ7AwLCt5ADyjZuRZLQtjiaetm7zUl7/view?usp=sharing",
       skills: ["Cybersecurity", "Threat Analysis", "Security Tools", "Risk Assessment"]
-    },
-    {
-      title: "ServiceNow Virtual Internship Program",
-      company: "ServiceNow x SmartBridge x AICTE",
-      duration: "October 2025",
-      description: "Comprehensive ServiceNow platform training covering Agentic AI, Administration Fundamentals, Flows, Automated Testing, Reports, and CSA exam preparation",
-      type: "Platform Development",
-      icon: <Building className="h-5 w-5" />,
-      color: "bg-purple-500/10 text-purple-600",
-      certificateUrl: "/certificates/servicenow-internship.pdf",
-      skills: ["ServiceNow", "Agentic AI", "Administration", "Flows", "ATF", "Reports"]
     }
   ];
 
