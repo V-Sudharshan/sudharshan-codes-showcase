@@ -86,7 +86,7 @@ const AchievementsSection = () => {
                         <img
                           src={achievement.image}
                           alt={achievement.title}
-                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-150"
+                          className="w-full h-full object-contain"
                         />
                       </div>
                     ) : (
