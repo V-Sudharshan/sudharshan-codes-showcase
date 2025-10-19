@@ -11,7 +11,7 @@ const AchievementsSection = () => {
   const achievements = [
     {
       title: "Skill Badges - Problem Solving & Languages",
-      platform: "Naukri Campus",
+      platform: "HackerRank",
       description: "Earned badges in Problem Solving, C++, Java, Python, and C Language",
       image: naukriBadges,
       icon: Award,
@@ -86,7 +86,7 @@ const AchievementsSection = () => {
                         <img
                           src={achievement.image}
                           alt={achievement.title}
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-150"
                         />
                       </div>
                     ) : (
