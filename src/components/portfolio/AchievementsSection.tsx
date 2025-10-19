@@ -5,9 +5,18 @@ import leetcode50 from "@/assets/leetcode-50-days.png";
 import leetcode100 from "@/assets/leetcode-100-days.png";
 import codechef250 from "@/assets/codechef-250-problems.png";
 import codechef25 from "@/assets/codechef-25-contests.png";
+import naukriBadges from "@/assets/naukri-badges.png";
 
 const AchievementsSection = () => {
   const achievements = [
+    {
+      title: "Skill Badges - Problem Solving & Languages",
+      platform: "Naukri Campus",
+      description: "Earned badges in Problem Solving, C++, Java, Python, and C Language",
+      image: naukriBadges,
+      icon: Award,
+      color: "text-orange-500",
+    },
     {
       title: "Young Turks 2025 - Round 1",
       platform: "Naukri Campus",
