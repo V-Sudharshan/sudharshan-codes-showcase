@@ -6,6 +6,8 @@ import leetcode100 from "@/assets/leetcode-100-days.png";
 import codechef250 from "@/assets/codechef-250-problems.png";
 import codechef25 from "@/assets/codechef-25-contests.png";
 import naukriBadges from "@/assets/naukri-badges.png";
+import androidComposeCamp from "@/assets/android-compose-camp.png";
+import parseAThon from "@/assets/parse-a-thon.jpg";
 
 const AchievementsSection = () => {
   const achievements = [
@@ -56,6 +58,22 @@ const AchievementsSection = () => {
       image: codechef25,
       icon: Award,
       color: "text-slate-400",
+    },
+    {
+      title: "Android Compose Camp",
+      platform: "GDSC Anurag University",
+      description: "Participated in Android Compose Camp: Build Your First App (January 5th & 6th 2024)",
+      image: androidComposeCamp,
+      icon: Award,
+      color: "text-green-500",
+    },
+    {
+      title: "PARSE-A-THON #1",
+      platform: "Anurag University CSE",
+      description: "Participated in PARSE-A-THON #1 event in collaboration with MALAI Club (January 30 to February 1, 2025)",
+      image: parseAThon,
+      icon: Trophy,
+      color: "text-yellow-500",
     },
   ];
 
