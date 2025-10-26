@@ -8,6 +8,7 @@ import codechef25 from "@/assets/codechef-25-contests.png";
 import naukriBadges from "@/assets/naukri-badges.png";
 import androidComposeCamp from "@/assets/android-compose-camp.png";
 import parseAThon from "@/assets/parse-a-thon.jpg";
+import youngTurksCert from "@/assets/young-turks-certificate.png";
 
 const AchievementsSection = () => {
   const achievements = [
@@ -22,7 +23,8 @@ const AchievementsSection = () => {
     {
       title: "Young Turks 2025 - Round 1",
       platform: "Naukri Campus",
-      description: "Successfully completed Round 1 of Young Turks 2025 competition",
+      description: "Scored 97.76 percentile in Naukri Campus Young Turks 2025, India's largest skill contest",
+      image: youngTurksCert,
       link: "https://www.naukri.com/campus/certificates/young_turks25_round_1_achievement/v0/68d9ba12fac35327673e08a0",
       icon: Trophy,
       color: "text-yellow-500",
