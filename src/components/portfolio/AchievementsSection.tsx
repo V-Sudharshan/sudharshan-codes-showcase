@@ -9,6 +9,7 @@ import naukriBadges from "@/assets/naukri-badges.png";
 import androidComposeCamp from "@/assets/android-compose-camp.png";
 import parseAThon from "@/assets/parse-a-thon.jpg";
 import youngTurksCert from "@/assets/young-turks-certificate.png";
+import aincat2025 from "@/assets/aincat-2025.png";
 
 const AchievementsSection = () => {
   const achievements = [
@@ -76,6 +77,15 @@ const AchievementsSection = () => {
       image: parseAThon,
       icon: Trophy,
       color: "text-yellow-500",
+    },
+    {
+      title: "AINCAT 2025 - Participation",
+      platform: "Naukri Campus",
+      description: "Successfully participated in AINCAT 2025 - India's Biggest Career Aptitude Test conducted by Naukri Campus",
+      image: aincat2025,
+      link: "https://www.naukri.com/campus/certificates/aincat_2025_participation/v0/683a0a83892c1f3133aae8d0",
+      icon: Award,
+      color: "text-blue-500",
     },
   ];
 
