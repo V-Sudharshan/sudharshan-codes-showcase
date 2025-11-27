@@ -101,7 +101,64 @@ const AchievementsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Mobile: Horizontal Scroll | Desktop: Grid */}
+        <div className="md:hidden overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4">
+          <div className="flex gap-4 w-max">
+            {achievements.map((achievement, index) => {
+              const Icon = achievement.icon;
+              return (
+                <div key={index} className="w-[85vw] max-w-sm snap-center">
+                  <Card
+                    className="group hover:shadow-lg transition-all duration-300 hover:scale-105 h-full"
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex flex-col items-center text-center space-y-4">
+                        {achievement.image ? (
+                          <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-background to-muted">
+                            <img
+                              src={achievement.image}
+                              alt={achievement.title}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
+                            <Icon className={`w-10 h-10 ${achievement.color}`} />
+                          </div>
+                        )}
+
+                        <div className="space-y-2">
+                          <Badge variant="secondary" className="mb-2">
+                            {achievement.platform}
+                          </Badge>
+                          <h3 className="font-semibold text-lg">{achievement.title}</h3>
+                          <p className="text-sm text-muted-foreground">
+                            {achievement.description}
+                          </p>
+                        </div>
+
+                        {achievement.link && (
+                          <a
+                            href={achievement.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-primary hover:underline mt-2 inline-flex items-center gap-1"
+                          >
+                            View Certificate
+                            <Award className="w-4 h-4" />
+                          </a>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Desktop: Grid Layout */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {achievements.map((achievement, index) => {
             const Icon = achievement.icon;
             return (

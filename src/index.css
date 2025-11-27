@@ -434,4 +434,14 @@ All colors MUST be HSL.
   .skill-bar {
     animation: skill-fill 1.5s ease-out forwards;
   }
+
+  /* Hide scrollbar for horizontal scroll */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

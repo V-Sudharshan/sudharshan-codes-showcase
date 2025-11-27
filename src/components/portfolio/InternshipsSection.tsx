@@ -104,7 +104,85 @@ const InternshipsSection = () => {
           <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">
             Professional Internships
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto">
+          {/* Mobile: Horizontal Scroll | Desktop: Grid */}
+          <div className="md:hidden overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4">
+            <div className="flex gap-4 w-max">
+              {internships.map((internship, index) => (
+                <div key={index} className="w-[85vw] max-w-md snap-center">
+                  <Card 
+                    className="bg-gradient-card border-border shadow-card hover:shadow-elegant transition-all duration-300 hover:scale-[1.02] group animate-scale-in h-full"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <CardHeader className="space-y-4">
+                      <div className="flex items-start justify-between">
+                        <div className={`p-3 rounded-lg ${internship.color} group-hover:scale-110 transition-transform`}>
+                          {internship.icon}
+                        </div>
+                        <Badge variant="outline" className="text-xs">
+                          {internship.type}
+                        </Badge>
+                      </div>
+                      
+                      <div>
+                        <CardTitle className="text-lg mb-2 text-foreground group-hover:text-primary transition-colors">
+                          {internship.title}
+                        </CardTitle>
+                        <p className="text-sm text-primary font-medium mb-1">
+                          {internship.company}
+                        </p>
+                        <div className="flex items-center text-xs text-muted-foreground mb-3">
+                          <Calendar className="h-3 w-3 mr-1" />
+                          {internship.duration}
+                        </div>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {internship.description}
+                        </p>
+                      </div>
+                    </CardHeader>
+
+                    <CardContent className="space-y-4">
+                      <div>
+                        <h4 className="text-sm font-medium text-foreground mb-3">
+                          Skills Gained
+                        </h4>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {internship.skills.map((skill, skillIndex) => (
+                            <Badge 
+                              key={skillIndex} 
+                              variant="secondary" 
+                              className="text-xs hover:bg-primary/10 hover:text-primary transition-colors"
+                            >
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="w-full"
+                        asChild
+                      >
+                        <a 
+                          href={internship.certificateUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center"
+                        >
+                          View Certificate
+                          <ExternalLink className="ml-2 h-3 w-3" />
+                        </a>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Desktop: Grid Layout */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto">
             {internships.map((internship, index) => (
               <Card 
                 key={index}
@@ -183,7 +261,81 @@ const InternshipsSection = () => {
           <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">
             ServiceNow Certifications
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {/* Mobile: Horizontal Scroll | Desktop: Grid */}
+          <div className="md:hidden overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4">
+            <div className="flex gap-4 w-max">
+              {certifications.map((cert, index) => (
+                <div key={index} className="w-[85vw] max-w-md snap-center">
+                  <Card 
+                    className="bg-gradient-card border-border shadow-card hover:shadow-elegant transition-all duration-300 hover:scale-[1.02] group animate-scale-in h-full"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <CardHeader className="space-y-4">
+                      <div className="flex items-start justify-between">
+                        <div className={`p-3 rounded-lg ${cert.color} group-hover:scale-110 transition-transform`}>
+                          {cert.icon}
+                        </div>
+                        <Badge variant="secondary" className="text-xs">
+                          Certification
+                        </Badge>
+                      </div>
+                      
+                      <div>
+                        <CardTitle className="text-lg mb-2 text-foreground group-hover:text-primary transition-colors">
+                          {cert.title}
+                        </CardTitle>
+                        <p className="text-sm text-primary font-medium mb-3">
+                          {cert.organization}
+                        </p>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {cert.description}
+                        </p>
+                      </div>
+                    </CardHeader>
+
+                    <CardContent className="space-y-4">
+                      <div>
+                        <h4 className="text-sm font-medium text-foreground mb-3">
+                          Key Skills
+                        </h4>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {cert.skills.map((skill, skillIndex) => (
+                            <Badge 
+                              key={skillIndex} 
+                              variant="secondary" 
+                              className="text-xs hover:bg-primary/10 hover:text-primary transition-colors"
+                            >
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="w-full"
+                        asChild
+                      >
+                        <a 
+                          href={cert.certificateUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center"
+                        >
+                          View Certificate
+                          <ExternalLink className="ml-2 h-3 w-3" />
+                        </a>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Desktop: Grid Layout */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {certifications.map((cert, index) => (
               <Card 
                 key={index}
