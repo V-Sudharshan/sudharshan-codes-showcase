@@ -3,8 +3,45 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Building, Calendar, ExternalLink, Award, Shield, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/hooks/use-reveal";
+import { SwipeIndicator, ScrollDots } from "@/components/ui/swipe-indicator";
+import { useState, useRef, useEffect } from "react";
 
 const InternshipsSection = () => {
+  const [internshipIndex, setInternshipIndex] = useState(0);
+  const [certIndex, setCertIndex] = useState(0);
+  const internshipsScrollRef = useRef<HTMLDivElement>(null);
+  const certificationsScrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const internshipsContainer = internshipsScrollRef.current;
+    if (!internshipsContainer) return;
+
+    const handleInternshipsScroll = () => {
+      const scrollLeft = internshipsContainer.scrollLeft;
+      const cardWidth = internshipsContainer.offsetWidth * 0.85;
+      const index = Math.round(scrollLeft / cardWidth);
+      setInternshipIndex(index);
+    };
+
+    internshipsContainer.addEventListener('scroll', handleInternshipsScroll);
+    return () => internshipsContainer.removeEventListener('scroll', handleInternshipsScroll);
+  }, []);
+
+  useEffect(() => {
+    const certificationsContainer = certificationsScrollRef.current;
+    if (!certificationsContainer) return;
+
+    const handleCertificationsScroll = () => {
+      const scrollLeft = certificationsContainer.scrollLeft;
+      const cardWidth = certificationsContainer.offsetWidth * 0.85;
+      const index = Math.round(scrollLeft / cardWidth);
+      setCertIndex(index);
+    };
+
+    certificationsContainer.addEventListener('scroll', handleCertificationsScroll);
+    return () => certificationsContainer.removeEventListener('scroll', handleCertificationsScroll);
+  }, []);
+
   const internships = [
     {
       title: "ServiceNow Virtual Internship Program",
@@ -105,8 +142,13 @@ const InternshipsSection = () => {
             Professional Internships
           </h3>
           {/* Mobile: Horizontal Scroll | Desktop: Grid */}
-          <div className="md:hidden">
-            <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4" id="internships-scroll">
+          <div className="md:hidden relative">
+            <SwipeIndicator />
+            <div 
+              ref={internshipsScrollRef}
+              className="overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4" 
+              id="internships-scroll"
+            >
               <div className="flex gap-4 w-max">
                 {internships.map((internship, index) => (
                   <div key={index} className="w-[85vw] max-w-md snap-center">
@@ -181,6 +223,7 @@ const InternshipsSection = () => {
                 ))}
               </div>
             </div>
+            <ScrollDots total={internships.length} current={internshipIndex} />
             <div className="flex justify-center gap-2 mt-4">
               <Button
                 variant="outline"
@@ -288,8 +331,13 @@ const InternshipsSection = () => {
             ServiceNow Certifications
           </h3>
           {/* Mobile: Horizontal Scroll | Desktop: Grid */}
-          <div className="md:hidden">
-            <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4" id="certifications-scroll">
+          <div className="md:hidden relative">
+            <SwipeIndicator />
+            <div 
+              ref={certificationsScrollRef}
+              className="overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4" 
+              id="certifications-scroll"
+            >
               <div className="flex gap-4 w-max">
                 {certifications.map((cert, index) => (
                   <div key={index} className="w-[85vw] max-w-md snap-center">
@@ -360,6 +408,7 @@ const InternshipsSection = () => {
                 ))}
               </div>
             </div>
+            <ScrollDots total={certifications.length} current={certIndex} />
             <div className="flex justify-center gap-2 mt-4">
               <Button
                 variant="outline"
