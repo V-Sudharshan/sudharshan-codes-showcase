@@ -2,6 +2,8 @@ import { Award, Trophy, Code2, ChevronLeft, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { SwipeIndicator, ScrollDots } from "@/components/ui/swipe-indicator";
+import { useState, useRef, useEffect } from "react";
 import leetcode50 from "@/assets/leetcode-50-days.png";
 import leetcode100 from "@/assets/leetcode-100-days.png";
 import codechef250 from "@/assets/codechef-250-problems.png";
@@ -13,6 +15,24 @@ import youngTurksCert from "@/assets/young-turks-certificate.png";
 import aincat2025 from "@/assets/aincat-2025.png";
 
 const AchievementsSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = container.offsetWidth * 0.85; // 85vw
+      const index = Math.round(scrollLeft / cardWidth);
+      setCurrentIndex(index);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const achievements = [
     {
       title: "Skill Badges - Problem Solving & Languages",
@@ -103,8 +123,12 @@ const AchievementsSection = () => {
         </div>
 
         {/* Mobile: Horizontal Scroll | Desktop: Grid */}
-        <div className="md:hidden">
-          <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4">
+        <div className="md:hidden relative">
+          <SwipeIndicator />
+          <div 
+            ref={scrollContainerRef}
+            className="overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4"
+          >
             <div className="flex gap-4 w-max">
               {achievements.map((achievement, index) => {
                 const Icon = achievement.icon;
@@ -158,6 +182,7 @@ const AchievementsSection = () => {
               })}
             </div>
           </div>
+          <ScrollDots total={achievements.length} current={currentIndex} />
           <div className="flex justify-center gap-2 mt-4">
             <Button
               variant="outline"
