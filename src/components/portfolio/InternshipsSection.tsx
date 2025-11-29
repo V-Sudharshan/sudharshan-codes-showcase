@@ -5,6 +5,7 @@ import { Building, Calendar, ExternalLink, Award, Shield, ChevronLeft, ChevronRi
 import { Reveal } from "@/hooks/use-reveal";
 import { SwipeIndicator, ScrollDots } from "@/components/ui/swipe-indicator";
 import { useState, useRef, useEffect } from "react";
+import { useSwipeVelocity } from "@/hooks/use-swipe-velocity";
 
 const InternshipsSection = () => {
   const [internshipIndex, setInternshipIndex] = useState(0);
@@ -41,6 +42,36 @@ const InternshipsSection = () => {
     certificationsContainer.addEventListener('scroll', handleCertificationsScroll);
     return () => certificationsContainer.removeEventListener('scroll', handleCertificationsScroll);
   }, []);
+
+  const scrollInternship = (direction: 'next' | 'prev') => {
+    const container = internshipsScrollRef.current;
+    if (!container) return;
+    
+    const cardWidth = container.offsetWidth * 0.85;
+    const scrollAmount = direction === 'next' ? cardWidth : -cardWidth;
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
+
+  const scrollCertification = (direction: 'next' | 'prev') => {
+    const container = certificationsScrollRef.current;
+    if (!container) return;
+    
+    const cardWidth = container.offsetWidth * 0.85;
+    const scrollAmount = direction === 'next' ? cardWidth : -cardWidth;
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
+
+  const internshipSwipe = useSwipeVelocity({
+    velocityThreshold: 0.5,
+    onSwipeLeft: () => scrollInternship('next'),
+    onSwipeRight: () => scrollInternship('prev'),
+  });
+
+  const certificationSwipe = useSwipeVelocity({
+    velocityThreshold: 0.5,
+    onSwipeLeft: () => scrollCertification('next'),
+    onSwipeRight: () => scrollCertification('prev'),
+  });
 
   const internships = [
     {
@@ -148,6 +179,8 @@ const InternshipsSection = () => {
               ref={internshipsScrollRef}
               className="overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4" 
               id="internships-scroll"
+              onTouchStart={internshipSwipe.handleTouchStart}
+              onTouchEnd={internshipSwipe.handleTouchEnd}
             >
               <div className="flex gap-4 w-max">
                 {internships.map((internship, index) => (
@@ -337,6 +370,8 @@ const InternshipsSection = () => {
               ref={certificationsScrollRef}
               className="overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4" 
               id="certifications-scroll"
+              onTouchStart={certificationSwipe.handleTouchStart}
+              onTouchEnd={certificationSwipe.handleTouchEnd}
             >
               <div className="flex gap-4 w-max">
                 {certifications.map((cert, index) => (

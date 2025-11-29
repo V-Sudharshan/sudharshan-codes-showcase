@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SwipeIndicator, ScrollDots } from "@/components/ui/swipe-indicator";
 import { useState, useRef, useEffect } from "react";
+import { useSwipeVelocity } from "@/hooks/use-swipe-velocity";
 import leetcode50 from "@/assets/leetcode-50-days.png";
 import leetcode100 from "@/assets/leetcode-100-days.png";
 import codechef250 from "@/assets/codechef-250-problems.png";
@@ -32,6 +33,21 @@ const AchievementsSection = () => {
     container.addEventListener('scroll', handleScroll);
     return () => container.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollToCard = (direction: 'next' | 'prev') => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    
+    const cardWidth = container.offsetWidth * 0.85;
+    const scrollAmount = direction === 'next' ? cardWidth : -cardWidth;
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
+
+  const { handleTouchStart, handleTouchEnd } = useSwipeVelocity({
+    velocityThreshold: 0.5,
+    onSwipeLeft: () => scrollToCard('next'),
+    onSwipeRight: () => scrollToCard('prev'),
+  });
 
   const achievements = [
     {
@@ -128,6 +144,8 @@ const AchievementsSection = () => {
           <div 
             ref={scrollContainerRef}
             className="overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 -mx-4 px-4"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             <div className="flex gap-4 w-max">
               {achievements.map((achievement, index) => {
